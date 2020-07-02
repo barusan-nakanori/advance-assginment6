@@ -1,0 +1,8 @@
+<% @comments.each do |comment| %>
+			<%= attachment_image_tag comment.user, :profile_image, size: "60x60",fallback:"HpGJ--S9_400x400.jpg" %>
+			<%= comment.content %>
+		<% if current_user == comment.user %>
+			<%= link_to "Delete", book_comment_path(@book,comment), method: :delete ,remote: true ,class: "btn btn-danger"%>
+		<% end %>
+		</br>
+<% end %>
